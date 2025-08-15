@@ -11,7 +11,9 @@ const WorkWithMe = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -21,7 +23,6 @@ const WorkWithMe = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form Submitted", formData);
-    // TODO: Send data to backend or email service
   };
 
   return (
@@ -35,7 +36,7 @@ const WorkWithMe = () => {
       <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left Text Section */}
         <motion.div
-          className="w-full md:w-1/2 text-white z-10"
+          className="w-full md:w-1/2 text-white z-10 font-raleway"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,8 +44,9 @@ const WorkWithMe = () => {
         >
           <h2 className="text-4xl font-bold mb-4">Let’s Work Together</h2>
           <p className="text-lg mb-6 text-gray-200">
-            I’m open for freelance work, collaborations, or exciting projects in tech and design.
-            Drop me a message and let’s build something great!
+            I’m open for freelance work, collaborations, or exciting projects
+            in tech and design. Drop me a message and let’s build something
+            great!
           </p>
           <p className="text-sm mb-6 text-gray-400">Response within 24–48 hrs.</p>
 
@@ -61,7 +63,7 @@ const WorkWithMe = () => {
               },
             }}
           >
-            {[ 
+            {[
               { icon: <FaEnvelope />, link: "mailto:your@email.com" },
               { icon: <FaGithub />, link: "https://github.com/yourusername" },
               { icon: <FaLinkedin />, link: "https://linkedin.com/in/yourprofile" },
@@ -87,7 +89,7 @@ const WorkWithMe = () => {
 
         {/* Right Form Section */}
         <motion.div
-          className="w-full md:w-1/2 z-10"
+          className="w-full md:w-1/2 z-10 font-raleway"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -105,7 +107,7 @@ const WorkWithMe = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full mt-1 px-4 py-2 bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <div>
@@ -116,7 +118,7 @@ const WorkWithMe = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full mt-1 px-4 py-2 bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <div>
@@ -127,7 +129,7 @@ const WorkWithMe = () => {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full mt-1 px-4 py-2 bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <motion.button

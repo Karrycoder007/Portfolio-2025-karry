@@ -1,57 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
-      {/* Top Footer */}
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
+    <footer className="bg-black text-white py-8 font-raleway [&_*]:font-raleway relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between md:items-center gap-6">
         {/* Brand */}
-        <div>
-          <h2
-            className="righteous-regular text-2xl font-bold mb-2"
-            style={{ fontFamily: "Righteous, sans-serif" }}
-          >
-            Kartik Bhat
-          </h2>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+          <h2 className="text-2xl font-bold mb-2">Kartik Bhat</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
             Frontend Developer · Web & App Specialist · Turning ideas into smooth, pixel-perfect experiences.
           </p>
         </div>
 
-        {/* Links */}
-        <div>
-          <h3
-            className="righteous-regular text-lg font-semibold mb-3"
-            style={{ fontFamily: "Righteous, sans-serif" }}
-          >
-            Quick Links
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#about" className="hover:text-yellow-400 transition">About</a></li>
-            <li><a href="#projects" className="hover:text-yellow-400 transition">Projects</a></li>
-            <li><a href="#contact" className="hover:text-yellow-400 transition">Contact</a></li>
-          </ul>
-        </div>
+        {/* Image + Social Links */}
+        <div className="flex flex-col items-center gap-4">
+          {/* Profile Image */}
+          <Image
+            src="/profile-1.jpeg"
+            alt="Kartik Bhat"
+            width={80}
+            height={80}
+            className="rounded-full border-2 border-yellow-400 shadow-lg"
+          />
 
-        {/* Social */}
-        <div>
-          <h3
-            className="righteous-regular text-lg font-semibold mb-3"
-            style={{ fontFamily: "Righteous, sans-serif" }}
-          >
-            Connect
-          </h3>
-          <div className="flex space-x-4 text-xl">
-            <a href="https://github.com" target="_blank" className="hover:text-yellow-400 transition">
-              <i className="ri-github-fill"></i>
+          {/* Social Links */}
+          <div className="flex space-x-4 text-2xl">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 transition"
+            >
+              <FaGithub />
             </a>
-            <a href="https://linkedin.com" target="_blank" className="hover:text-yellow-400 transition">
-              <i className="ri-linkedin-fill"></i>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 transition"
+            >
+              <FaLinkedin />
             </a>
-            <a href="mailto:kbhat4203@gmail.com" className="hover:text-yellow-400 transition">
-              <i className="ri-mail-fill"></i>
+            <a
+              href="mailto:kbhat4203@gmail.com"
+              className="hover:text-blue-400 transition"
+            >
+              <FaEnvelope />
             </a>
           </div>
         </div>

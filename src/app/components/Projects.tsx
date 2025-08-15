@@ -50,7 +50,7 @@ export default function Projects() {
     if (!container) return;
 
     let animationFrame: number;
-    const scrollSpeed = 0.5; // ✅ changed to const
+    const scrollSpeed = 1.5; // faster scroll
     let isHovered = false;
 
     const animateScroll = () => {
@@ -72,7 +72,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-gray-50 dark:bg-white">
+    <section className="py-20 px-4 md:px-6 bg-gray-50 dark:bg-white">
       <motion.h2
         className="relative inline-block text-5xl md:text-6xl font-extrabold text-transparent 
                    bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 
@@ -83,9 +83,8 @@ export default function Projects() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         My Projects
-        {/* Animated underline */}
         <motion.span
-          className="absolute left-0 bottom-0 h-[3px] w-full bg-gradient-to-r from-gray-900 to-gray-500"
+          className="absolute left-0 bottom-0 h-[4px] w-full bg-gradient-to-r from-gray-900 to-gray-500"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
@@ -96,12 +95,13 @@ export default function Projects() {
 
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto gap-6 scrollbar-hide"
+        className="flex gap-6 overflow-x-auto scrollbar-hide py-4"
         style={{ scrollBehavior: "smooth" }}
       >
         {[...projects, ...projects].map((project, index) => (
           <motion.div
             key={index}
+            className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]" // bigger card width
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

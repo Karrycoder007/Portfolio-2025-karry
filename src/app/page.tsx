@@ -9,7 +9,7 @@ import WorkWithMe from "./components/WorkWithMe";
 
 export default function Home() {
   return (
-   <div className="bg-amber-50">
+   <div className="bg-amber-50 font-raleway">
     <Hero/>
     <About/>
     <Skills/>

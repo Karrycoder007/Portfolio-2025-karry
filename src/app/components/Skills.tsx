@@ -41,7 +41,7 @@ export default function Skills() {
     <section className="py-20 bg-white">
       {/* Animated Title */}
       <motion.h2
-        className="text-5xl font-bold text-center mb-12 text-gray-900"
+        className="text-5xl font-bold text-center mb-12 text-gray-900 font-raleway"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

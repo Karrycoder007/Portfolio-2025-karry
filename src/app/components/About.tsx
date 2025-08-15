@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLaptopCode, FaCameraRetro, FaLanguage, FaDraftingCompass } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaCameraRetro,
+  FaLanguage,
+  FaDraftingCompass,
+} from "react-icons/fa";
 
 export default function About() {
   const revealVariant = {
@@ -15,14 +20,47 @@ export default function About() {
     },
   };
 
-  // Original text highlight
+  // Container for all cards
+  const cardContainerVariant = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.25 },
+    },
+  };
+
+  // Each card animation
+  const cardVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
+  // Inner text animation (inside each card)
+  const innerVariant = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const textVariant = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
   const highlight = (text: string) => (
     <span className="bg-gradient-to-r from-pink-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent font-semibold">
       {text}
     </span>
   );
 
-  // Highlight with image using next/image
   const highlightWithImage = (text: string, imgSrc: string) => (
     <span className="inline-flex items-center gap-2">
       <span className="bg-gradient-to-r from-pink-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent font-semibold">
@@ -42,29 +80,29 @@ export default function About() {
     <>
       I’m {highlight("Kartik Bhat")}, a creative developer from{" "}
       {highlightWithImage("Goa", "/profile.jpeg")} with over{" "}
-      {highlight("three and a half years")} of experience crafting{" "}
-      fast, modern, and animated websites.
-      My work blends clean design with interactive elements, turning ideas into{" "}
+      {highlight("three and a half years")} of experience crafting fast, modern,
+      and animated websites. My work blends clean design with interactive
+      elements, turning ideas into{" "}
       {highlight("memorable digital experiences")}.
     </>,
     <>
       When I’m not building on the web, you’ll probably find me with a{" "}
-      {highlightWithImage("camera", "/profile-2.jpeg")} in hand — capturing moments through{" "}
-      {highlight("photography")} and exploring the art of{" "}
-      filmmaking.
-      I’m also learning {highlightWithImage(
+      {highlightWithImage("camera", "/profile-2.jpeg")} in hand — capturing
+      moments through {highlight("photography")} and exploring the art of
+      filmmaking. I’m also learning{" "}
+      {highlightWithImage(
         "Japanese (日本語)",
         "https://images.unsplash.com/photo-1553695730-3e86115764b4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0"
-      )} and have a deep love for{" "}
-      travel, culture, and design that inspires the stories I tell online.
+      )}{" "}
+      and have a deep love for travel, culture, and design that inspires the
+      stories I tell online.
     </>,
     <>
       Beyond coding, I have a passion for {highlight("UI/UX design")} and{" "}
-      {highlight("product design")} — creating not just how things look, but{" "}
-      how they feel.  
-      I approach every project like a film director: planning each frame,{" "}
-      choreographing motion, and making sure the experience stays with the user{" "}
-      long after they close the tab.
+      {highlight("product design")} — creating not just how things look, but how
+      they feel. I approach every project like a film director: planning each
+      frame, choreographing motion, and making sure the experience stays with
+      the user long after they close the tab.
     </>,
   ];
 
@@ -120,57 +158,56 @@ export default function About() {
         {/* Fact Cards */}
         <motion.div
           className="mt-14 grid md:grid-cols-4 gap-8"
+          variants={cardContainerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            visible: { transition: { staggerChildren: 0.2 } },
-            hidden: {},
-          }}
+          viewport={{ once: true, amount: 0.2 }}
         >
-          <motion.div
-            className="p-6 bg-white dark:bg-black rounded-xl shadow-lg hover:shadow-xl transition-all"
-            variants={revealVariant}
-          >
-            <FaLaptopCode className="text-4xl text-pink-500 mb-4" />
-            <h3 className="text-xl text-white font-semibold mb-2">Tech Stack</h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              React, Next.js, Tailwind CSS, Node.js, Firebase, MongoDB.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-lg hover:shadow-xl transition-all"
-            variants={revealVariant}
-          >
-            <FaDraftingCompass className="text-4xl text-green-500 mb-4" />
-            <h3 className="text-xl text-white font-semibold mb-2">Design</h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              UI/UX design, product design, and creative direction.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-lg hover:shadow-xl transition-all"
-            variants={revealVariant}
-          >
-            <FaCameraRetro className="text-4xl text-yellow-500 mb-4" />
-            <h3 className="text-xl text-white font-semibold mb-2">Hobbies</h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              Photography, videography, anime, and travel.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-lg hover:shadow-xl transition-all"
-            variants={revealVariant}
-          >
-            <FaLanguage className="text-4xl text-blue-500 mb-4" />
-            <h3 className="text-xl text-white font-semibold mb-2">Languages</h3>
-            <p className="text-gray-700 dark:text-gray-300">
-              English, Hindi, Kannada, Konkani, Marathi and Japanese (日本語).
-            </p>
-          </motion.div>
+          {[
+            {
+              icon: <FaLaptopCode className="text-4xl text-pink-500 mb-4" />,
+              title: "Tech Stack",
+              desc: "React, Next.js, Tailwind CSS, Node.js, Firebase, MongoDB.",
+            },
+            {
+              icon: <FaDraftingCompass className="text-4xl text-green-500 mb-4" />,
+              title: "Design",
+              desc: "UI/UX design, product design, and creative direction.",
+            },
+            {
+              icon: <FaCameraRetro className="text-4xl text-yellow-500 mb-4" />,
+              title: "Hobbies",
+              desc: "Photography, videography, anime, and travel.",
+            },
+            {
+              icon: <FaLanguage className="text-4xl text-blue-500 mb-4" />,
+              title: "Languages",
+              desc: "English, Hindi, Kannada, Konkani, Marathi and Japanese (日本語).",
+            },
+          ].map((card, i) => (
+            <motion.div
+              key={i}
+              className="p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              variants={cardVariant}
+            >
+              {/* Inner content stagger */}
+              <motion.div variants={innerVariant}>
+                <motion.div variants={textVariant}>{card.icon}</motion.div>
+                <motion.h3
+                  className="text-xl text-white font-semibold mb-2"
+                  variants={textVariant}
+                >
+                  {card.title}
+                </motion.h3>
+                <motion.p
+                  className="text-gray-700 dark:text-gray-300"
+                  variants={textVariant}
+                >
+                  {card.desc}
+                </motion.p>
+              </motion.div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
