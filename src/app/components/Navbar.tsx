@@ -132,7 +132,7 @@ export default function Navbar() {
               className="px-4 py-2 bg-black text-white rounded-md shadow-sm text-center hover:bg-gray-800 transition-colors duration-300"
               style={{ fontFamily: "Raleway, sans-serif", fontWeight: 500 }}
             >
-              Work With Me
+              Work With Me 
             </Link>
           </motion.div>
         )}

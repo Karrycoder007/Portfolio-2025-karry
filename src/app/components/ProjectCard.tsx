@@ -8,7 +8,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ image, title, link }: ProjectCardProps) {
   return (
-    <div className="min-w-[300px] bg-white text-blue-50 dark:bg-zinc-900 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+    <div className="min-w-[300px] bg-white dark:bg-zinc-900 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
       <div className="relative w-full h-48">
         <Image
           src={image}
@@ -19,13 +19,15 @@ export default function ProjectCard({ image, title, link }: ProjectCardProps) {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
         {link && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-300 text-sm"
+            className="text-blue-600 dark:text-blue-400 text-sm hover:underline"
           >
             Visit →
           </a>

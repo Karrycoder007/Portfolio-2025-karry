@@ -60,18 +60,18 @@ export default function ProjectsPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.div
-               whileHover={{ scale: 1.1 }}
-               transition={{ duration: 0.5, ease: "easeOut" }}
-              
-              
-              className="relative w-full h-100 ">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover "
-                />
-              </motion.div>
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+  className="relative w-full h-64 md:h-72 lg:h-80 overflow-hidden"
+>
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    className="object-cover"
+  />
+</motion.div>
+
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>

@@ -10,35 +10,35 @@ const projects = [
     title: "Portfolio Website",
     description: "A modern personal portfolio built with Next.js and TailwindCSS.",
     github: "https://github.com/yourusername/portfolio",
-    demo: "https://your-portfolio-demo.com",
+    demo: "https://www.mounesh-kn.com/",
   },
   {
     image: "/travel.png",
     title: "Travel Website",
     description: "Full-stack online store with cart, checkout, and admin panel.",
     github: "https://github.com/yourusername/ecommerce",
-    demo: "https://your-ecommerce-demo.com",
+    demo: "https://travel-website-j.vercel.app/",
   },
   {
     image: "/grudhra.png",
-    title: "Travel Booking Platform",
+    title: "Grudhra Agency",
     description: "Responsive app for booking trips and accommodations.",
     github: "https://github.com/yourusername/travel-booking",
-    demo: "https://your-travel-demo.com",
+    demo: "https://grudhrasolutions.com",
   },
   {
     image: "/zoom.png",
-    title: "Admin Dashboard",
+    title: "Zoom Clone",
     description: "Interactive dashboard for analytics and user management.",
     github: "https://github.com/yourusername/admin-dashboard",
-    demo: "https://your-dashboard-demo.com",
+    demo: "https://zoom-clone-app-two.vercel.app/",
   },
   {
-    image: "/projects/blog.jpg",
-    title: "Blog CMS",
-    description: "Content management system for creating and editing blog posts.",
+    image: "/2023.png",
+    title: "Grudhra Agency 2023",
+    description: "Grudhra Solutions website.",
     github: "https://github.com/yourusername/blog-cms",
-    demo: "https://your-blog-demo.com",
+    demo: "https://grudhra-2023.vercel.app/",
   },
 ];
 
@@ -50,11 +50,11 @@ export default function Projects() {
     if (!container) return;
 
     let animationFrame: number;
-    const scrollSpeed = 1.5; // faster scroll
-    let isHovered = false;
+    const scrollSpeed = 1.5; 
+    let isPaused = false;
 
     const animateScroll = () => {
-      if (!isHovered) {
+      if (!isPaused) {
         container.scrollLeft += scrollSpeed;
         if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
           container.scrollLeft = 0;
@@ -65,14 +65,19 @@ export default function Projects() {
 
     animationFrame = requestAnimationFrame(animateScroll);
 
-    container.addEventListener("mouseenter", () => (isHovered = true));
-    container.addEventListener("mouseleave", () => (isHovered = false));
+    // Pause on hover (desktop)
+    container.addEventListener("mouseenter", () => (isPaused = true));
+    container.addEventListener("mouseleave", () => (isPaused = false));
+
+    // Pause when user touches / scrolls (mobile)
+    container.addEventListener("touchstart", () => (isPaused = true));
+    container.addEventListener("touchend", () => (isPaused = false));
 
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   return (
-    <section className="py-20 px-4 md:px-6 bg-gray-50 dark:bg-white">
+    <section className="py-20 px-4 md:px-6 bg-gray-50 dark:bg-zinc-0">
       <motion.h2
         className="relative inline-block text-5xl md:text-6xl font-extrabold text-transparent 
                    bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 
@@ -101,7 +106,7 @@ export default function Projects() {
         {[...projects, ...projects].map((project, index) => (
           <motion.div
             key={index}
-            className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]" // bigger card width
+            className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
