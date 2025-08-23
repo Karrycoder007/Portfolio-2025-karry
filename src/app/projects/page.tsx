@@ -6,31 +6,31 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Personal Portfolio",
+    title: "Portfolio Website",
     description: "A personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
     image: "/portfolio.png",
     link: "https://mounesh-kn.com",
   },
   {
-    title: "Zoom Clone App",
+    title: "Zoom Clone",
     description: "A Video Conferencing Web app.",
     image: "/zoom.png",
     link: "https://zoom-clone-app-two.vercel.app",
   },
   {
-    title: "Eco Venture Travel",
+    title: "Travel Website(Eco Venture) ",
     description: "A travel platform for premium cab services.",
     image: "/travel.png",
     link: "https://your-photography-link.com",
   },
   {
-    title: "Grudhra Solutions",
-    description: "A Web design and development agency.",
+    title: "Grudhra Solutions Agency Website",
+    description: "A Web design and developement agency.",
     image: "/grudhra.png",
     link: "https://grudhrasolutions.com",
   },
   {
-    title: "Animated Landing",
+    title: "Animated Landing Page",
     description: "An interactive landing page with immersive animations.",
     image: "/2023.png",
     link: "https://your-landing-link.com",
@@ -53,24 +53,24 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white text-blue-700 dark:bg-zinc-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border-2 border-gray-200 transition-shadow"
+              className="bg-white text-blue-700 dark:bg-zinc-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border-2 transition-shadow"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative w-full h-64 md:h-72 lg:h-80 overflow-hidden"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+  className="relative w-full h-64 md:h-72 lg:h-80 overflow-hidden"
+>
+  <Image
+    src={project.image}
+    alt={project.title}
+    fill
+    className="object-cover"
+  />
+</motion.div>
 
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{project.title}</h2>
