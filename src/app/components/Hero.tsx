@@ -117,7 +117,8 @@ export default function Hero() {
 >
   {/* Split Text Animation */}
   <motion.h1
-    className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 flex flex-wrap justify-center md:justify-start"
+    className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 text-center md:text-left leading-tight break-words"
+
     variants={containerVariants}
   >
     {letters.map((char, i) => (
