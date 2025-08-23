@@ -19,27 +19,27 @@ const projects = [
   },
   {
     title: "Travel Website(Eco Venture) ",
-    description: "A gallery to display high-quality photography with smooth animations.",
+    description: "A travel platform for premium cab services.",
     image: "/travel.png",
     link: "https://your-photography-link.com",
   },
   {
     title: "Grudhra Solutions Agency Website",
-    description: "A blog documenting travel adventures, with a focus on storytelling and design.",
+    description: "A Web design and developement agency.",
     image: "/grudhra.png",
     link: "https://grudhrasolutions.com",
   },
   {
     title: "Animated Landing Page",
     description: "An interactive landing page with immersive animations.",
-    image: "/projects/landing.jpg",
+    image: "/2023.png",
     link: "https://your-landing-link.com",
   },
   {
-    title: "Graphic Design Portfolio",
-    description: "A showcase of graphic design work, from posters to digital art.",
-    image: "/projects/design.jpg",
-    link: "https://your-design-link.com",
+    title: "Web Design Portfolio",
+    description: "A showcase of web design work and projects.",
+    image: "/coderkarry.png",
+    link: "https://coderkarry-portfolio.vercel.app/",
   },
 ];
 
