@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import {  FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const WorkWithMe = () => {
   const [formData, setFormData] = useState({

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -37,15 +38,13 @@ const testimonials = [
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
 
-  // Auto scroll every 2.5 seconds
- // Auto scroll every 4 seconds
-useEffect(() => {
+  // Auto scroll every 4s
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 4000); // 4000ms = 4s
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
-  
 
   return (
     <section className="py-20 px-6 relative overflow-hidden">
@@ -56,7 +55,7 @@ useEffect(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-black mb-4"
+          className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
         >
           Feedback That Inspires
         </motion.h2>
@@ -65,9 +64,9 @@ useEffect(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-600"
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-300"
         >
-          Feedback from our amazing clients and collaborators. See how we’ve
+          Feedback from our amazing clients and collaborators. See how we&apos;ve
           helped bring their ideas to life with clean, responsive, and
           interactive digital solutions.
         </motion.p>
@@ -83,7 +82,7 @@ useEffect(() => {
               ? "right"
               : i === (current - 1 + testimonials.length) % testimonials.length
               ? "left"
-              : "back"; // back cards hidden
+              : "back"; // hide others
 
           return (
             <motion.div
@@ -91,24 +90,40 @@ useEffect(() => {
               initial={{
                 opacity: 0,
                 scale: pos === "center" ? 1 : 0.85,
-                x: pos === "center" ? 0 : pos === "left" ? -200 : pos === "right" ? 200 : 0,
+                x:
+                  pos === "center"
+                    ? 0
+                    : pos === "left"
+                    ? -200
+                    : pos === "right"
+                    ? 200
+                    : 0,
               }}
               animate={{
                 opacity: pos === "center" ? 1 : pos === "back" ? 0 : 0.6,
                 scale: pos === "center" ? 1 : 0.85,
-                x: pos === "center" ? 0 : pos === "left" ? -200 : pos === "right" ? 200 : 0,
+                x:
+                  pos === "center"
+                    ? 0
+                    : pos === "left"
+                    ? -200
+                    : pos === "right"
+                    ? 200
+                    : 0,
                 zIndex: pos === "center" ? 10 : 1,
               }}
               transition={{ type: "spring", stiffness: 120, damping: 25 }}
               className="absolute w-96 md:w-[28rem] bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 flex flex-col items-center text-center"
             >
-              <img
+              <Image
                 src={t.image}
                 alt={t.name}
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full mb-6 object-cover shadow-md"
+                width={112} // ~w-28
+                height={112} // ~h-28
+                className="rounded-full mb-6 object-cover shadow-md"
               />
               <p className="text-gray-700 dark:text-gray-300 italic mb-6 text-lg md:text-xl">
-                "{t.review}"
+                &quot;{t.review}&quot;
               </p>
               <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">
                 {t.name}
