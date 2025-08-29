@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex space-x-4 text-2xl">
             <a
-              href="https://github.com"
+              href="https://github.com/Karrycoder007"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400 transition"
@@ -38,7 +38,7 @@ export default function Footer() {
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/coderkarry007/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400 transition"
@@ -46,7 +46,7 @@ export default function Footer() {
               <FaLinkedin />
             </a>
             <a
-              href="mailto:kbhat4203@gmail.com"
+              href="mailto:kbhat3007@gmail.com"
               className="hover:text-blue-400 transition"
             >
               <FaEnvelope />

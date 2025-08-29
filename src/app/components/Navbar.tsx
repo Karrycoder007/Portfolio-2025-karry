@@ -40,7 +40,7 @@ export default function Navbar() {
             alt="Kartik Bhat"
             width={48}
             height={32}
-            className="w-14 h-9 rounded-2xl object-cover shadow-sm border"
+            className="w-14 h-9 rounded-2xl object-cover shadow-sm border-2 border-gray-300"
           />
         </Link>
 

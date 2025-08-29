@@ -62,10 +62,9 @@ const WorkWithMe = () => {
             }}
           >
             {[ 
-              { icon: <FaEnvelope />, link: "mailto:your@email.com" },
-              { icon: <FaGithub />, link: "https://github.com/yourusername" },
-              { icon: <FaLinkedin />, link: "https://linkedin.com/in/yourprofile" },
-              { icon: <FaTwitter />, link: "https://twitter.com/yourhandle" },
+              { icon: <FaEnvelope />, link: "mailto:kbhat3007@gmail.com" },
+              { icon: <FaGithub />, link: "https://github.com/Karrycoder007" },
+              { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/coderkarry007/" }
             ].map((item, idx) => (
               <motion.a
                 key={idx}

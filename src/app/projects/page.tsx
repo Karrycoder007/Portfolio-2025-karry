@@ -53,7 +53,7 @@ export default function ProjectsPage() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-white text-blue-700 dark:bg-zinc-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border-2 transition-shadow"
+              className="bg-white text-blue-300 dark:bg-zinc-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border-1 transition-shadow"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
