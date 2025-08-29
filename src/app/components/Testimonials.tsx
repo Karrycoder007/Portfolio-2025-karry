@@ -55,7 +55,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
+          className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-black mb-4"
         >
           Feedback That Inspires
         </motion.h2>
@@ -64,7 +64,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-300"
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-700"
         >
           Feedback from our amazing clients and collaborators. See how we&apos;ve
           helped bring their ideas to life with clean, responsive, and
