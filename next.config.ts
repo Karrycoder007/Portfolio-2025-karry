@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   darkMode: "class", 
   images: {
-    domains: ['images.unsplash.com','plus.unsplash.com'],
+    domains: ['images.unsplash.com','plus.unsplash.com','randomuser.me'],
   },
   extend: {
     animation: {
