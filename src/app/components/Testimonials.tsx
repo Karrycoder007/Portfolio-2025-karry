@@ -7,7 +7,7 @@ import Image from "next/image";
 const testimonials = [
   {
     name: "HarshaVardhana P",
-    role: "Product Manager",
+    role: "Backend Developer",
     review:
       "Working with Kartik was an absolute pleasure. He delivered exactly what we needed and went above and beyond.",
     image: "/harsha.jpg",
