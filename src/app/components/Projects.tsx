@@ -40,6 +40,13 @@ const projects = [
     github: "https://github.com/yourusername/blog-cms",
     demo: "https://grudhra-2023.vercel.app/",
   },
+  {
+    image: "/cleanroom.png",
+    title: "Cleanroom Agency",
+    description: "Cleanroom Services.",
+    github: "https://github.com/yourusername/blog-cms",
+    demo: "https://cleanroom-check.vercel.app/",
+  },
 ];
 
 export default function Projects() {

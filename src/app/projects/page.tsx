@@ -13,7 +13,7 @@ const projects = [
   },
   {
     title: "Zoom Clone",
-    description: "A Video Conferencing Web app.",
+    description: "A Video Conferencing Web app.", 
     image: "/zoom.png",
     link: "https://zoom-clone-app-two.vercel.app",
   },
@@ -41,6 +41,12 @@ const projects = [
     image: "/coderkarry.png",
     link: "https://coderkarry-portfolio.vercel.app/",
   },
+  {
+    image: "/cleanroom.png",
+    title: "Cleanroom Agency",
+    description: "Cleanroom Services.",
+    link: "https://cleanroom-check.vercel.app/",
+  }
 ];
 
 export default function ProjectsPage() {
