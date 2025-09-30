@@ -1,79 +1,88 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
-
-
 @import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
-  }
+     :root {
+        --background: #ffffff;
+        --foreground: #0a0a0a;
+    }
 }
 
-html{
-  cursor: none;
-  font-family: "Righteous", sans-serif;
+html {
+    cursor: none;
+    font-family: "Righteous", sans-serif;
 }
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Righteous", sans-serif;
-
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Righteous", sans-serif;
 }
+
 
 /* globals.css */
+
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
+
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-
-
 
 .raleway {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400; /* normal weight */
-  font-style: normal;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    /* normal weight */
+    font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 700; /* Bold */
-  font-optical-sizing: auto;
-  font-style: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    /* Bold */
+    font-optical-sizing: auto;
+    font-style: normal;
 }
+
 
 /* Paragraphs: Raleway Light */
+
 p {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400; /* Light */
-  font-optical-sizing: auto;
-  font-style: normal;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    /* Light */
+    font-optical-sizing: auto;
+    font-style: normal;
 }
+
 
 /* globals.css */
-form, 
+
+form,
 form * {
-  font-family: 'Raleway', sans-serif !important;
+    font-family: 'Raleway', sans-serif !important;
 }
 
-footer,footer a{
-  font-family: "Raleway,sans-serif";
+footer,
+footer a {
+    font-family: "Raleway,sans-serif";
 }
-

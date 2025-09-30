@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const navLinks = [
@@ -14,10 +14,27 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Motion variants for nav links (only initial and visible)
-  const navLinkVariants: Variants = {
-    initial: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.3 } },
+  // Parent container for stagger
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+  };
+
+  // Individual link animation
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20 } },
+    exit: { y: 20, opacity: 0 },
   };
 
   return (
@@ -52,10 +69,6 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <motion.div
               key={link.name}
-              variants={navLinkVariants}
-              initial="initial"
-              whileInView="visible"
-              viewport={{ once: true }}
               whileHover={{ y: -3, opacity: 1, transition: { type: "spring", stiffness: 300 } }}
             >
               <Link href={link.href} className="hover:underline">
@@ -63,8 +76,6 @@ export default function Navbar() {
               </Link>
             </motion.div>
           ))}
-
-          {/* Work With Me Button */}
           <motion.div whileHover={{ scale: 1.05 }} className="relative">
             <Link
               href="/work"
@@ -110,30 +121,34 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white text-black px-6 py-4 flex flex-col gap-4 shadow-inner"
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            className="md:hidden bg-white text-black px-6 py-6 flex flex-col gap-6 shadow-inner"
             style={{ fontFamily: "Raleway, sans-serif", fontWeight: 400 }}
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-base font-normal hover:underline"
-              >
-                {link.name}
-              </Link>
+              <motion.div key={link.name} variants={itemVariants}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="text-lg font-normal hover:underline"
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
-            <Link
-              href="/work"
-              onClick={() => setOpen(false)}
-              className="px-4 py-2 bg-black text-white rounded-md shadow-sm text-center hover:bg-gray-800 transition-colors duration-300"
-              style={{ fontFamily: "Raleway, sans-serif", fontWeight: 500 }}
-            >
-              Work With Me 
-            </Link>
+            <motion.div variants={itemVariants}>
+              <Link
+                href="/work"
+                onClick={() => setOpen(false)}
+                className="px-4 py-2 bg-black text-white rounded-md shadow-sm text-center hover:bg-gray-800 transition-colors duration-300"
+                style={{ fontFamily: "Raleway, sans-serif", fontWeight: 500 }}
+              >
+                Work With Me
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

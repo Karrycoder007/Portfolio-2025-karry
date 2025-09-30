@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
+import ScrollingBanner from "./components/Marque";
+import Loader from "./components/Loader";
 
 export const metadata: Metadata = {
   title: "Kartik Bhat | Portfolio",
@@ -19,10 +21,12 @@ export default function RootLayout({
       <body className="bg-white dark:bg-black text-black dark:text-white transition-all duration-300 antialiased">
         <CustomCursor />
         <Navbar />
-        <main className="min-h-screen px-4 md:px-16 lg:px-24 py-10">
+        <Loader/>
+        <main className="min-h-screen px-4 md:px-16 lg:px-24 py-2">
           {children}
         </main>
         <Footer />
+        <ScrollingBanner/>
       </body>
     </html>
   );
