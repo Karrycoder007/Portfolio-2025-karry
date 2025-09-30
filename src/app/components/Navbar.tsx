@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 
 const navLinks = [
@@ -15,7 +15,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   // Parent container for stagger
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -31,9 +31,13 @@ export default function Navbar() {
   };
 
   // Individual link animation
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 30, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20 } },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+    },
     exit: { y: 20, opacity: 0 },
   };
 
@@ -62,14 +66,11 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div
-          className="hidden md:flex gap-6 text-lg items-center"
-          style={{ fontFamily: "Raleway, sans-serif", fontWeight: 400 }}
-        >
+        <div className="hidden md:flex gap-6 text-lg items-center" style={{ fontFamily: "Raleway, sans-serif", fontWeight: 400 }}>
           {navLinks.map((link) => (
             <motion.div
               key={link.name}
-              whileHover={{ y: -3, opacity: 1, transition: { type: "spring", stiffness: 300 } }}
+              whileHover={{ y: -3, opacity: 1, transition: { type: "spring" as const, stiffness: 300 } }}
             >
               <Link href={link.href} className="hover:underline">
                 {link.name}
@@ -130,11 +131,7 @@ export default function Navbar() {
           >
             {navLinks.map((link) => (
               <motion.div key={link.name} variants={itemVariants}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-lg font-normal hover:underline"
-                >
+                <Link href={link.href} onClick={() => setOpen(false)} className="text-lg font-normal hover:underline">
                   {link.name}
                 </Link>
               </motion.div>

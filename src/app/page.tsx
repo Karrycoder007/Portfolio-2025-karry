@@ -1,7 +1,7 @@
 
 import About from "./components/About";
 import Hero from "./components/Hero";
-import ScrollingBanner from "./components/Marque";
+
 
 
 import Projects from "./components/Projects";
