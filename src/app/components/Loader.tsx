@@ -17,7 +17,7 @@ export default function Loader() {
   useEffect(() => {
     const controls = animate(progress, 100, {
       duration: 2.5,
-      ease: [0.6, 0.01, 0.05, 0.95] as any,
+      ease: [0.6, 0.01, 0.05, 0.95] as unknown as (number | number[])[],
       onUpdate: (latest) => {
         const num = Math.floor(latest);
         const str = num.toString().padStart(3, "0");
@@ -31,7 +31,7 @@ export default function Loader() {
     return () => controls.stop();
   }, [progress]);
 
-  const stripTransition: Transition = { duration: 2.2, ease: [0.6, 0.01, 0.05, 0.95] as any };
+  const stripTransition: Transition = { duration: 2.2, ease: [0.6, 0.01, 0.05, 0.95] as unknown as (number | number[])[] };
 
   return loading ? (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none">
@@ -42,7 +42,11 @@ export default function Loader() {
             key={i}
             className="flex-1 h-full bg-black"
             initial={{ y: "0%" }}
-            animate={animateStrips ? { y: "-100%", transition: { ...stripTransition, delay: i * 0.05 } } : {}}
+            animate={
+              animateStrips
+                ? { y: "-100%", transition: { ...stripTransition, delay: i * 0.05 } }
+                : {}
+            }
             onAnimationComplete={() => i === strips.length - 1 && setLoading(false)}
           />
         ))}
@@ -52,7 +56,11 @@ export default function Loader() {
       <motion.div
         className="absolute bottom-6 right-6 flex space-x-2 text-white text-5xl md:text-7xl font-orbitron font-bold"
         initial={{ y: 0, opacity: 1 }}
-        animate={counterComplete ? { y: -200, opacity: 0, transition: { duration: 1, ease: "easeIn" } } : {}}
+        animate={
+          counterComplete
+            ? { y: -200, opacity: 0, transition: { duration: 1, ease: "easeIn" } }
+            : {}
+        }
       >
         {digits.map((digit, idx) => (
           <div key={idx} className="overflow-hidden h-[70px] md:h-[90px]">
