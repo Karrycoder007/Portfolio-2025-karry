@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
-import ScrollingBanner from "./components/Marque";
+
 import Loader from "./components/Loader";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <ScrollingBanner/>
+        
       </body>
     </html>
   );

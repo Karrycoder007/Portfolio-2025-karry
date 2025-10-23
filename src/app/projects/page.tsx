@@ -46,6 +46,12 @@ const projects = [
     title: "Cleanroom Agency",
     description: "Cleanroom Services.",
     link: "https://cleanroom-check.vercel.app/",
+  },
+  {
+    image: "/anita.png",
+    title: "Cleanroom Agency",
+    description: "Anita Raicar Personal Portfolio",
+    link: "https://anitaraicar.in",
   }
 ];
 

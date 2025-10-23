@@ -4,9 +4,23 @@ import { motion } from "framer-motion";
 
 const items = ["Freelancer", "Developer", "Designer"];
 
-export default function MarqueeStrip() {
+interface MarqueeStripProps {
+  delay?: number; // optional delay in seconds
+}
+
+export default function MarqueeStrip({ delay = 0.5 }: MarqueeStripProps) {
   return (
-    <div className="relative w-full bg-black text-white overflow-hidden py-6">
+    <motion.div
+      initial={{ y: 80, opacity: 0 }} // start further down
+      whileInView={{ y: 0, opacity: 1 }} // float up
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 1.5,       // longer duration for smooth float
+        delay,
+        ease: [0.6, 0.01, 0.1, 0.99], // smooth, gentle ease
+      }}
+      className="relative w-full bg-black text-white overflow-hidden py-6"
+    >
       <motion.div
         initial={{ x: 0 }}
         animate={{ x: "-50%" }}
@@ -34,6 +48,6 @@ export default function MarqueeStrip() {
           </div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
