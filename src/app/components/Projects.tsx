@@ -49,7 +49,7 @@ const projects = [
   },
   {
     image: "/anita.png",
-    title: "Cleanroom Agency",
+    title: "Anita Raicar Portfolio",
     description: "Anita Raicar Personal Portfolio",
     github: "https://github.com/yourusername/blog-cms",
     demo: "https://anitaraicar.in",
