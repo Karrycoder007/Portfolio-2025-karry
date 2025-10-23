@@ -47,6 +47,12 @@ const projects = [
     github: "https://github.com/yourusername/blog-cms",
     demo: "https://cleanroom-check.vercel.app/",
   },
+  {
+    image: "/anita.png",
+    title: "Cleanroom Agency",
+    description: "Anita Raicar Personal Portfolio",
+    link: "https://anitaraicar.in",
+  }
 ];
 
 export default function Projects() {
