@@ -21,6 +21,10 @@ export default function MediaPage() {
     "/11.jpeg",
     "/12.jpeg",
     "/14.jpeg",
+    "/16.jpeg",
+    "/17.jpeg",
+    "/18.jpeg",
+    "/19.jpeg",
     
   ];
 
