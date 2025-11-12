@@ -1,22 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  darkMode: "class", 
   images: {
-    domains: ['images.unsplash.com','plus.unsplash.com','randomuser.me'],
+    domains: [
+      "images.unsplash.com",
+      "plus.unsplash.com",
+      "randomuser.me",
+    ],
   },
-  extend: {
-    animation: {
-      'spin-slow': 'spin 8s linear infinite',
-    },
-    fontFamily: {
-      raleway: ["Raleway", "sans-serif"],
-    },
-
-  }
-  
-
 };
 
 export default nextConfig;
