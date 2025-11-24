@@ -1,92 +1,111 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
-import { Camera } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
-export default function MediaPage() {
-  const photos = [
-    "/1.jpeg",
-    "/2.jpeg",
-    "/13.jpeg",
-    "/4.jpeg",
-    "/9.jpeg",
-    "/3.jpeg",
-    "/5.jpeg",
-    "/6.jpeg",
-    "/7.jpeg",
-    "/8.jpeg",
-    "/10.jpeg",
-    "/15.jpeg",
-    "/11.jpeg",
-    "/12.jpeg",
-    "/14.jpeg",
-    "/16.jpeg",
-    "/17.jpeg",
-    "/18.jpeg",
-    "/19.jpeg",
-    "/20.jpeg",
-    "/21.jpeg",
-    "/22.jpeg",
-    "/23.jpeg",
-    "/24.jpeg",
-    "/25.jpeg"
-    
-  ];
+export default function GalleryPage() {
+  // ---------------------------------------------------
+  // Your image categories
+  // ---------------------------------------------------
+  const categories: Record<string, string[]> = {
+    Human: [
+      "/h1.jpeg", "/h2.jpeg", "/h3.jpeg", "/h4.jpeg", "/h5.jpeg",
+      "/h6.jpeg", "/h7.jpeg",
+    ],
+    Nature: [
+      "/n1.jpeg", "/n2.jpeg", "/n3.jpeg", "/n4.jpeg", "/n5.jpeg", "/n15.jpeg",
+      "/n6.jpeg", "/n7.jpeg", "/n8.jpeg", "/n9.jpeg", "/n10.jpeg",
+      "/n11.jpeg", "/n12.jpeg", "/n13.jpeg", "/n14.jpeg",
+    ],
+    Architecture: [
+      "/a1.jpeg", "/a2.jpeg", "/a3.jpeg", "/a4.jpeg", "/a5.jpeg",
+      "/a6.jpeg", "/a7.jpeg", "/a8.jpeg", "/a9.jpeg", "/a10.jpeg", "/a11.jpeg",
+    ],
+    Cultural: [
+     "/c7.jpeg", "/c1.jpeg", "/c2.jpeg", "/c3.jpeg", "/c4.jpeg", "/c5.jpeg","/c6.jpeg",
+
+    ],
+  };
+
+  const [selected, setSelected] = useState<keyof typeof categories>("Human");
+  const [viewer, setViewer] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-black text-white w-full">
-      {/* Header Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center justify-center text-center py-20 px-0"
-      >
-        <Camera size={72} className="text-gray-400 mb-6" />
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-wide">
-          Photography
-        </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Capturing emotions, details, and stories — one frame at a time.
-        </p>
-      </motion.section>
+    <div className="min-h-screen w-full bg-black text-white px-6 py-10">
+      {/* FILTER BUTTONS */}
+      <div className="flex justify-center gap-6 mb-10">
+        {Object.keys(categories).map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelected(cat as keyof typeof categories)}
+            className={`px-6 py-2 text-lg rounded-full border transition-all ${
+              selected === cat
+                ? "bg-white text-black border-white"
+                : "border-gray-500 text-gray-300 hover:border-white"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
-      {/* Image Grid */}
-      <motion.section
-        className="px-6 pb-24"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          visible: { transition: { staggerChildren: 0.1 } },
-        }}
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {photos.map((src, index) => (
+      {/* MASONRY GRID */}
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={selected}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4"
+        >
+          {categories[selected].map((src, index) => (
             <motion.div
-              key={index}
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1 },
-              }}
-              whileHover={{
-                scale: 1.04,
-                boxShadow: "0 0 40px rgba(255,255,255,0.1)",
-              }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative overflow-hidden rounded-xl bg-neutral-900 border border-gray-900"
+              key={src}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="w-full break-inside-avoid overflow-hidden rounded-xl cursor-pointer group"
+              onClick={() => setViewer(src)}
             >
               <Image
                 src={src}
-                alt={`photo-${index}`}
-                width={800}
-                height={600}
-                className="w-full h-full object-contain bg-black transition-transform duration-500"
+                alt=""
+                width={1000}
+                height={1300}
+                className="w-full h-auto rounded-xl transition-transform duration-500 group-hover:scale-105"
               />
             </motion.div>
           ))}
-        </div>
-      </motion.section>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* FULLSCREEN LIGHTBOX */}
+      <AnimatePresence>
+        {viewer && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setViewer(null)}
+            className="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center p-4"
+          >
+            {/* Close Button */}
+            <button className="absolute top-5 right-5 p-2 bg-white/20 rounded-full backdrop-blur-sm">
+              <X size={28} className="text-white" />
+            </button>
+
+            <motion.img
+              src={viewer}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="max-w-[95%] max-h-[90%] object-contain rounded-xl shadow-xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

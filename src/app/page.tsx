@@ -1,6 +1,7 @@
 
 import About from "./components/About";
 import Hero from "./components/Hero";
+import HomePageGallery from "./components/HomapageGallery";
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
     
     <About/>
     <Skills/>
+    <HomePageGallery/>
     <Projects/>
     <Testimonials/>
     <WorkWithMe/>
