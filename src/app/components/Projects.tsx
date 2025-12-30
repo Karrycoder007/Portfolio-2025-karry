@@ -39,6 +39,7 @@ const projects = [
     description: "Grudhra Solutions website.",
     github: "https://github.com/yourusername/blog-cms",
     demo: "https://grudhra-2023.vercel.app/",
+   
   },
   {
     image: "/cleanroom.png",
@@ -79,7 +80,7 @@ export default function Projects() {
 
     animationFrame = requestAnimationFrame(animateScroll);
 
-    // Pause on hover (desktop)
+    // Pause on hover (desktop)q
     container.addEventListener("mouseenter", () => (isPaused = true));
     container.addEventListener("mouseleave", () => (isPaused = false));
 

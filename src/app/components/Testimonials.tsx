@@ -19,6 +19,13 @@ const testimonials = [
       "Kartik’s expertise in frontend and modern frameworks is outstanding. The project was fast, responsive, and visually impressive.",
     image: "/mks.jpg",
   },
+  {
+    name: "Anita Raicar",
+    role: "Art of Living Teacher",
+    review:
+      "Working with Kartik was a great experience. He understood exactly what I wanted and translated it into a website that feels both beautiful and professional. The site is smooth, responsive, and a joy to use.",
+    image: "/h3.jpeg",
+  },
 ];
 
 export default function Testimonials() {

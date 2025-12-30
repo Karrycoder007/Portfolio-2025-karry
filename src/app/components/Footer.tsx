@@ -84,7 +84,7 @@ export default function Footer() {
                 <span
                   key={idx}
                   className="text-6xl sm:text-6xl lg:text-9xl font-extrabold uppercase tracking-tight font-raleway"
-                >
+                > 
                   {item}
                   {idx !== marqueeItems.length - 1 && (
                     <span className="mx-4 text-6xl sm:text-6xl lg:text-9xl font-raleway">•</span>
@@ -97,4 +97,4 @@ export default function Footer() {
       </motion.div>
     </footer>
   );
-}
+} 

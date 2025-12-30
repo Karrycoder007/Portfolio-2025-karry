@@ -23,6 +23,8 @@ export default function ProjectCard({ image, title, link }: ProjectCardProps) {
           {title}
         </h3>
         {link && (
+
+
           <a
             href={link}
             target="_blank"
@@ -31,6 +33,9 @@ export default function ProjectCard({ image, title, link }: ProjectCardProps) {
           >
             Visit →
           </a>
+
+
+
         )}
       </div>
     </div>
