@@ -106,32 +106,38 @@ const WorkWithMe = () => {
             className="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-xl shadow-lg space-y-5 text-black"
           >
             <div>
-              <label className="block text-sm font-semibold">Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold">Message</label>
-              <textarea
-                name="message"
-                rows={4}
-                required
-                className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
-            </div>
+  <label htmlFor="name" className="block text-sm font-semibold">Name</label>
+  <input
+    id="name"
+    type="text"
+    name="name"
+    required
+    className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+</div>
+
+<div>
+  <label htmlFor="email" className="block text-sm font-semibold">Email</label>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    required
+    className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+</div>
+
+<div>
+  <label htmlFor="message" className="block text-sm font-semibold">Message</label>
+  <textarea
+    id="message"
+    name="message"
+    rows={4}
+    required
+    className="w-full mt-1 px-4 py-2 font-raleway bg-white bg-opacity-20 border border-gray-400 border-opacity-30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+  />
+</div>
+
             <motion.button
               type="submit"
               disabled={status === "loading"}

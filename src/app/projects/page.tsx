@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { abortOnSynchronousPlatformIOAccess } from "next/dist/server/app-render/dynamic-rendering";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -52,7 +53,9 @@ const projects = [
     title: "Anita Raicar Portfolio",
     description: "Anita Raicar Personal Portfolio",
     link: "https://anitaraicar.in",
-  }
+
+  }  
+  
 ];
 
 export default function ProjectsPage() {
