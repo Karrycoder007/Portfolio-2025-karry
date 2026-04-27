@@ -26,6 +26,14 @@ const testimonials = [
       "Working with Kartik was a great experience. He understood exactly what I wanted and translated it into a website that feels both beautiful and professional. The site is smooth, responsive, and a joy to use.",
     image: "/h3.jpeg",
   },
+  {
+    name: "Mandar Apte",
+    role: "Cities4Peace Founder",
+    review:
+      "Kartik has a rare talent for translating inner values into a world-class user experience. For From India With Love, he helped us build a bridge between India's timeless heritage and modern changemakers. The website is a testament to his ability to design with intentionality and compassion. "
+,
+    image: "/h6.jpeg",
+  },
 ];
 
 export default function Testimonials() {
@@ -40,7 +48,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-20 px-6 relative overflow-hidden bg-white">
       {/* Heading */}
       <div className="text-center mb-16 max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-700 mb-4">

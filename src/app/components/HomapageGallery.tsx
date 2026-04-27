@@ -16,7 +16,7 @@ export default function HomePageGallery() {
   const [viewer, setViewer] = useState<string | null>(null);
 
   return (
-    <div className="w-full py-10 px-6">
+    <div className="w-full py-10 px-6 bg-white">
       {/* Section Title */}
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
         Featured Work

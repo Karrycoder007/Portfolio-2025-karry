@@ -54,6 +54,13 @@ const projects = [
     description: "Anita Raicar Personal Portfolio",
     github: "https://github.com/yourusername/blog-cms",
     demo: "https://anitaraicar.in",
+  },
+  {
+    image: "/59.png",
+    title: "From India With Love",
+    description: "From India With Love Official Webiste",
+    github: "https://github.com/yourusername/blog-cms",
+    demo: "https://fromindiawithlove.org",
   }
 ];
 

@@ -54,7 +54,14 @@ const projects = [
     description: "Anita Raicar Personal Portfolio",
     link: "https://anitaraicar.in",
 
-  }  
+  }  ,
+  {
+    image: "/59.png",
+    title: "From India With Love",
+    description: "From India With Love Official Website",
+    link: "https://fromindiawithlove.org",
+
+  } 
   
 ];
 
